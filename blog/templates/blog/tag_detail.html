@@ -9,14 +9,7 @@
     <h1 class = "mb-5">Posts with "{{ tag.title|title}} tag:"</h1>
 
     {% for post in tag.posts.all %}
-    <div class="card mb-4">
-      <h5 class="card-header">{{ post.date_pub}}</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.body | truncatewords:15 }}</p>
-        <a href="{{ post.get_absolute_url }}" class="btn btn-light">Read</a>   <!-- % url 'post_detail_url' slug=post.slug % -->
-      </div>
-    </div>
+      {% include 'blog/includes/post_card_templates.html'%}
 
 
     {% endfor %}
